@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom"
+// import MainLayout from "./layouts/MainLayout"
+import CodePulse from "./pages/CodePulse.jsx"
+// import Dashboard from "./pages/Dashboard"
+// import ApiClient from "./pages/ApiClient"
+// import Collections from "./pages/Collections"
+// import History from "./pages/History"
+// import Settings from "./pages/Settings"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // <Routes>
+    //   <Route path="/" element={<MainLayout />}>
+    //     {/* <Route index element={<Dashboard />} />
+    //     <Route path="api-client" element={<ApiClient />} />
+    //     <Route path="collections" element={<Collections />} />
+    //     <Route path="history" element={<History />} />
+    //     <Route path="settings" element={<Settings />} /> */}
+    //   </Route>
+    // </Routes>
+    <>
+    <CodePulse/>
+    </>
+  )
 }
 
-export default App;
+export default App
+
