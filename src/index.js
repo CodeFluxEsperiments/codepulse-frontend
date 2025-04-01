@@ -5,20 +5,20 @@ import { Provider } from "react-redux"
 import { ThemeProvider, CssBaseline } from "@mui/material"
 
 import App from "./App"
-// import store from "./store/store"
-// import theme from "./themes/theme"
+import store from "./store/store"
+import theme from "./themes/theme"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-      {/* <BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <CssBaseline /> */}
-          <App />
-        {/* </ThemeProvider>
-      </BrowserRouter> */}
-    {/* </Provider> */}
+          <CssBaseline />
+           <App />
+         </ThemeProvider>
+      </BrowserRouter> */
+    </Provider>
   </React.StrictMode>,
 )
 
