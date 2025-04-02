@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 // Create response slice
 const responseSlice = createSlice({
@@ -8,7 +7,7 @@ const responseSlice = createSlice({
     data: null,
     loading: false,
     error: null,
-    time: 0
+    time: 0,
   },
   reducers: {
     fetchResponseRequest: (state) => {
@@ -23,25 +22,35 @@ const responseSlice = createSlice({
     fetchResponseFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    }
-  }
+    },
+  },
 });
 
-// Export the actions
-export const { 
-  fetchResponseRequest, 
-  fetchResponseSuccess, 
-  fetchResponseFailure 
-} = responseSlice.actions;
+// Create ui slice for theme handling
+const uiSlice = createSlice({
+  name: 'ui',
+  initialState: {
+    theme: {
+      mode: 'light', // Initial theme mode
+    },
+  },
+  reducers: {
+    toggleThemeMode: (state) => {
+      state.theme.mode = state.theme.mode === 'dark' ? 'light' : 'dark';
+    },
+  },
+});
+
+// Export actions
+export const { fetchResponseRequest, fetchResponseSuccess, fetchResponseFailure } = responseSlice.actions;
+export const { toggleThemeMode } = uiSlice.actions;
 
 // Create store with Redux Toolkit's configureStore
 const store = configureStore({
   reducer: {
     response: responseSlice.reducer,
-    // Add other reducers here
+    ui: uiSlice.reducer, // Add the uiSlice reducer here
   },
-  // Optional middleware configuration
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(yourCustomMiddleware),
 });
 
 export default store;
